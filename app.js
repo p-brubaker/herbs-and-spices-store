@@ -1,8 +1,7 @@
-// import functions and grab DOM elements
-
-// initialize state
-
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+// herbs and spices data model
+  // id: a unique string that identifies the product
+  // name: user friendly name of the product
+  // image: image file path
+  // description: a longer discription of the product
+  // category: the category this product belongs to
+  // price: the price the user will pay
