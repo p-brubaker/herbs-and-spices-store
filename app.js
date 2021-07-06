@@ -10,12 +10,17 @@ import { products } from './products.js';
 
 export function renderProduct(product) {
     const li = document.createElement('li');
+
     const productDiv = document.createElement('div');
     productDiv.classList.add('store-item');
+
     const buyItemDiv = document.createElement('div');
     buyItemDiv.classList.add('buy-item');
+
     const addButton = document.createElement('button');
     addButton.classList.add('add-to-basket');
+    addButton.innerText = 'Add';
+    addButton.value = product.id;
 
 
     const nameSpan = document.createElement('span');

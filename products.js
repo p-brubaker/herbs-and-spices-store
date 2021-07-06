@@ -4,8 +4,8 @@ export const products = [
         id: 'crocus-sativas',
         category: 'spice',
         description: 'The most expensive spice',
-        image: '../assets/saffron.jpeg',
-        price: 2336.00
+        image: './assets/saffron.jpeg',
+        price: 2336
     },
     {
         name: 'garlic',
