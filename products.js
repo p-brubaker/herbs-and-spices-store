@@ -4,7 +4,7 @@ export const products = [
         id: 'crocus-sativas',
         category: 'spice',
         description: 'The most expensive spice',
-        image: './assets/saffron',
+        image: '../assets/saffron.jpeg',
         price: 2336.00
     },
     {
@@ -12,7 +12,7 @@ export const products = [
         id: 'allium-sativum',
         category: 'herb',
         description: 'An herb with a pungent kick',
-        image: './assets/garlic',
+        image: './assets/garlic.jpeg',
         price: 0.50
     },
     {
@@ -20,7 +20,7 @@ export const products = [
         id: 'ocimum-basilicum',
         category: 'herb',
         description: 'Smells great, best when fresh',
-        image: './assets/basil',
+        image: './assets/basil.jpeg',
         price: 5.00
     },
     {
@@ -28,7 +28,7 @@ export const products = [
         id: 'c-annum',
         category: 'spice',
         description: 'A moderately hot pepper',
-        image: './assets/cayenne',
+        image: './assets/cayenne.jpeg',
         price: 5.00
     },
     {
@@ -36,7 +36,7 @@ export const products = [
         id: 'syzygium-aromaticum',
         category: 'spice',
         description: 'Good for hot beverages',
-        image: './assets/cloves',
+        image: './assets/cloves.jpeg',
         price: 10.00
     }
 ];
