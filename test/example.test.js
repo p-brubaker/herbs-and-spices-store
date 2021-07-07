@@ -2,6 +2,7 @@
 // import { example } from '../example.js';
 import { renderProduct } from '../renderProducts.js';
 import { products } from '../products.js';
+import { findById } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -20,9 +21,24 @@ test('time to test a function', (expect) => {
 });
 
 test('dom render function matches static html', (expect) => {
-    const expected = `<li><div class="store-item"><span class="name"></span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description"></span><div class="buy-item"><span class="price"></span><button class="add-to-basket" value="crocus-sativas"></button></div></div></li>`;
+    const expected = `<li><div class="store-item"><span class="name">saffron</span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description">The most expensive spice</span><div class="buy-item"><span class="price">$2336</span><button class="add-to-basket" value="1">Add</button></div></div></li>`;
     
     const actual = renderProduct(products[0]);
 
     expect.equal(actual.outerHTML, expected);
+});
+
+test('find by id returns a product from the products array with the given id', (expect) => {
+    const expected = {
+        name: 'saffron',
+        id: 1,
+        category: 'spice',
+        description: 'The most expensive spice',
+        image: './assets/saffron.jpeg',
+        price: 2336
+    };
+
+    const actual = findById(products, 1);
+
+    expect.deepEqual(actual, expected);
 });
