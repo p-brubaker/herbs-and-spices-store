@@ -20,7 +20,7 @@ test('time to test a function', (expect) => {
 });
 
 test('dom render function matches static html', (expect) => {
-    const expected = `<li><div class="store-item"><span class="name">saffron</span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description">The most expensive spice</span><div class="buy-item"><span class="price">$2336</span><button class="add-to-basket" value="crocus-sativas">Add</button></div></div></li>`;
+    const expected = `<li><div class="store-item"><span class="name"></span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description"></span><div class="buy-item"><span class="price"></span><button class="add-to-basket" value="crocus-sativas"></button></div></div></li>`;
     
     const actual = renderProduct(products[0]);
 
