@@ -105,6 +105,11 @@ img {
     border: 3px solid black;
     border-radius: 5px;
     padding: 10px;
+    margin: 1px;
+}
+
+button {
+    margin-left: 10px;
 }
   
   @keyframes pulse {

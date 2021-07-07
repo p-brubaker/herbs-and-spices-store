@@ -13,7 +13,7 @@ export const products = [
         category: 'herb',
         description: 'An herb with a pungent kick',
         image: './assets/garlic.jpeg',
-        price: 0.50
+        price: 1
     },
     {
         name: 'basil',
@@ -21,7 +21,7 @@ export const products = [
         category: 'herb',
         description: 'Smells great, best when fresh',
         image: './assets/basil.jpeg',
-        price: 5.00
+        price: 5
     },
     {
         name: 'cayenne',
@@ -29,7 +29,7 @@ export const products = [
         category: 'spice',
         description: 'A moderately hot pepper',
         image: './assets/cayenne.jpeg',
-        price: 5.00
+        price: 5
     },
     {
         name: 'cloves',
@@ -37,6 +37,6 @@ export const products = [
         category: 'spice',
         description: 'Good for hot beverages',
         image: './assets/cloves.jpeg',
-        price: 10.00
+        price: 10
     }
 ];
