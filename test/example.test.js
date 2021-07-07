@@ -2,7 +2,7 @@
 // import { example } from '../example.js';
 import { renderProduct } from '../renderProducts.js';
 import { products } from '../products.js';
-import { findById } from '../utils.js';
+import { findById, toUSD, calcItemTotal } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -41,4 +41,12 @@ test('find by id returns a product from the products array with the given id', (
     const actual = findById(products, 1);
 
     expect.deepEqual(actual, expected);
+});
+
+test('calcItemTotal function returns correct total and toUSD formats it to USD', (expect) => {
+    const expected = '$0.51';
+
+    const actual = toUSD(calcItemTotal(3, 0.17));
+
+    expect.equal(actual, expected);
 });
