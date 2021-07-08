@@ -1,0 +1,17 @@
+import { addItemToCart } from '../cart-api.js';
+
+const test = QUnit.test;
+
+test('addItemToCart: item present so adds one to item quantity', (expect) => {
+    const fauxCart = [
+        { id: 2, quantity: 1 },
+        { id: 3, quantity: 3 }
+    ];
+    const expected = [
+        { id: 2, quantity: 2 },
+        { id: 3, quantity: 3 }
+    ];
+    const actual = addItemToCart(2, fauxCart);
+    expect.deepEqual(actual, expected);
+});
+
