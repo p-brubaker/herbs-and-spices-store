@@ -12,6 +12,14 @@ export function findById(products, id) {
     return null;
 }
 
-export function calcItemTotal(quantity, price) {
-    return quantity * price;
+
+export function calcOrderTotal(cart, products) {
+    let total = 0;
+    
+    for (let entry of cart) {
+        let currentItem = findById(products, entry.id);
+        let subtotal = currentItem.price * entry.quantity;
+        total += subtotal;
+    }
+    return total;
 }

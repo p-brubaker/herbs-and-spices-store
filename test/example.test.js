@@ -2,7 +2,8 @@
 // import { example } from '../example.js';
 import { renderProduct } from '../renderProducts.js';
 import { products } from '../data/products.js';
-import { findById, toUSD, calcItemTotal } from '../utils.js';
+import { cart } from '../data/cart.js';
+import { findById, calcOrderTotal } from '../utils.js';
 import { renderTableRow } from '../shopping-cart/render-line-items.js';
 
 const test = QUnit.test;
@@ -44,20 +45,20 @@ test('find by id returns a product from the products array with the given id', (
     expect.deepEqual(actual, expected);
 });
 
-test('calcItemTotal function returns correct total and toUSD formats it to USD', (expect) => {
-    const expected = '$0.51';
-
-    const actual = toUSD(calcItemTotal(3, 0.17));
-
-    expect.equal(actual, expected);
-});
-
 test('render table row function matches static html design', (expect) => {
     const expected = `<tr><td>basil</td><td>$5.00</td><td>2</td><td>$10.00</td></tr>`;
     
     const lineItem = { id: 2, quantity: 2 };
     const product = products[2];
     const actual = renderTableRow(lineItem, product);
+
+    expect.equal(actual, expected);
+});
+
+test('calcOrderTotal function returns correct total', (expect) => {
+    const expected = 16;
+
+    const actual = calcOrderTotal(cart, products);
 
     expect.equal(actual, expected);
 });
