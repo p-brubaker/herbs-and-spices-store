@@ -1,4 +1,5 @@
-import { addItemToCart } from '../cart-api.js';
+import { addItemToCart, getCart, CART } from '../cart-api.js';
+
 
 const test = QUnit.test;
 
@@ -26,6 +27,13 @@ test('addItemToCart: item not present so creates item', (expect) => {
         { id: 4, quantity: 1 }
     ];
     const actual = addItemToCart(4, fauxCart);
+    expect.deepEqual(actual, expected);
+});
+
+test('getCart func returns an empty array if no CART present in local storage', (expect) => {
+    localStorage.setItem(CART, '');
+    const expected = [];
+    const actual = getCart();
     expect.deepEqual(actual, expected);
 });
 
