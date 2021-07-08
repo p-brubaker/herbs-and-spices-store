@@ -9,14 +9,14 @@ export function renderProduct(product) {
 
     const addButton = document.createElement('button');
     addButton.classList.add('add-to-basket');
-    addButton.innerText = 'Add';
+    addButton.textContent = 'Add';
     addButton.value = product.id;
 
 
     const nameSpan = document.createElement('span');
     nameSpan.classList.add('name');
     
-    nameSpan.innerText = product.name;
+    nameSpan.textContent = product.name;
 
     const img = document.createElement('img');
     img.src = product.image;
@@ -24,12 +24,12 @@ export function renderProduct(product) {
 
     const descSpan = document.createElement('span');
     descSpan.classList.add('description');
-    descSpan.innerText = product.description;
+    descSpan.textContent = product.description;
 
     
     const priceSpan = document.createElement('span');
     priceSpan.classList.add('price');
-    priceSpan.innerText = `$${product.price}`;
+    priceSpan.textContent = `$${product.price}`;
 
     buyItemDiv.appendChild(priceSpan);
     buyItemDiv.appendChild(addButton);
