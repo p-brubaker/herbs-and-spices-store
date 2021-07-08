@@ -1,9 +1,9 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
-import { renderProduct } from '../renderProducts.js';
+import { renderProduct } from '../storefront/renderProducts.js';
 import { products } from '../data/products.js';
 import { cart } from '../data/cart.js';
-import { findById, calcOrderTotal } from '../utils.js';
+import { findById, calcOrderTotal } from '../utils/utils.js';
 import { renderTableRow } from '../shopping-cart/render-line-items.js';
 
 const test = QUnit.test;

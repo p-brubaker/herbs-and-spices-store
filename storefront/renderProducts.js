@@ -15,7 +15,6 @@ export function renderProduct(product) {
 
     const nameSpan = document.createElement('span');
     nameSpan.classList.add('name');
-    
     nameSpan.textContent = product.name;
 
     const img = document.createElement('img');
