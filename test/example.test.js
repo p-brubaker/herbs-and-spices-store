@@ -1,7 +1,7 @@
 // IMPORT MODULES under test here:
 // import { example } from '../example.js';
 import { renderProduct } from '../renderProducts.js';
-import { products } from '../products.js';
+import { products } from '../data/products.js';
 import { findById, toUSD, calcItemTotal } from '../utils.js';
 import { renderTableRow } from '../shopping-cart/render-line-items.js';
 
