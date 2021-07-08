@@ -1,4 +1,4 @@
-import { addItemToCart, getCart, setCart, CART } from '../cart-api.js';
+import { addItemToCart, getCart, setCart, CART, clearCart } from '../cart-api.js';
 
 
 const test = QUnit.test;
@@ -61,3 +61,15 @@ test('setCart func sets CART in local storage to appropriate string', (expect) =
     expect.equal(expected, actual);
 });
 
+test('clearcart sets CART in local storage to empty string', (expect) => {
+    const fauxCart = [
+        { id: 2, quantity: 1 },
+        { id: 3, quantity: 3 },
+        { id: 4, quantity: 1 }
+    ];
+    localStorage.setItem(CART, fauxCart);
+    clearCart();
+    const expected = '';
+    const actual = localStorage.getItem(CART);
+    expect.equal(actual, expected);
+});

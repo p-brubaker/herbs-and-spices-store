@@ -21,5 +21,5 @@ export function setCart(cart) {
 }
 
 export function clearCart() {
-    localStorage.setCart(CART, '');
+    localStorage.setItem(CART, '');
 }
