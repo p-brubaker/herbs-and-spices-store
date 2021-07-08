@@ -17,7 +17,7 @@ export function getCart() {
 }
 
 export function setCart(cart) {
-    localStorage.set(CART, JSON.stringify(cart));
+    localStorage.setItem(CART, JSON.stringify(cart));
 }
 
 export function clearCart() {
