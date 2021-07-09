@@ -7,8 +7,7 @@ export function addItemToCart(id, cart) {
             return [...cart.slice(0, item), cart[item], ...cart.slice(item + 1, cart.length)];
         }
     }
-    cart.push({ id, quantity: 1 });
-    return cart;
+    return [...cart, { id, quantity: 1 }];
 }
 
 export function getCart() {

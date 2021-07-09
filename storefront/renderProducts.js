@@ -41,8 +41,7 @@ export function renderProduct(product) {
     li.appendChild(productDiv);
 
     addButton.addEventListener('click', (e) => {
-        let cart = getCart();
-        addItemToCart(e.target.value, cart);
+        let cart = addItemToCart(e.target.value, getCart());
         setCart(cart);
     });
     return li;
