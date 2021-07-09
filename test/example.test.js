@@ -2,7 +2,7 @@
 import { renderProduct } from '../storefront/renderProducts.js';
 import { products } from '../data/products.js';
 import { findById, calcOrderTotal } from '../utils/utils.js';
-import { renderTableRow } from '../shopping-cart/render-line-items.js';
+import { renderTableRow } from '../shopping-cart/cart-renders.js';
 
 const test = QUnit.test;
 
