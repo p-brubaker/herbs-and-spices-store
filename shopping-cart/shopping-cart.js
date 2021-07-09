@@ -43,11 +43,10 @@ if (!getCart().length) {
 placeOrderBtn.addEventListener('click', () => {
     if (window.confirm(JSON.stringify(getCart(), true, 2))) {
         setCart([]);
-        renderCart([], products);
-        placeOrderBtn.disabled = 'disabled';
-        clearCartBtn.disabled = 'disabled';
+        window.location.replace('../index.html');
     }
 });
+
 clearCartBtn.addEventListener('click', () => {
     if (window.confirm('Are you sure you want to clear your cart?')) {
         setCart([]);
