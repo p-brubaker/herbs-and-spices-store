@@ -9,6 +9,13 @@ export function renderProduct(product) {
     const buyItemDiv = document.createElement('div');
     buyItemDiv.classList.add('buy-item');
 
+    const qty = document.createElement('input');
+    qty.type = 'number';
+    qty.value = 1;
+    qty.min = 1;
+    qty.step = 1;
+    qty.classList.add('qty-input');
+
     const addButton = document.createElement('button');
     addButton.classList.add('add-to-basket');
     addButton.textContent = 'Add';
@@ -33,6 +40,7 @@ export function renderProduct(product) {
     priceSpan.textContent = `$${product.price}`;
 
     buyItemDiv.appendChild(priceSpan);
+    buyItemDiv.appendChild(qty);
     buyItemDiv.appendChild(addButton);
     productDiv.appendChild(nameSpan);
     productDiv.appendChild(img);
@@ -41,7 +49,8 @@ export function renderProduct(product) {
     li.appendChild(productDiv);
 
     addButton.addEventListener('click', (e) => {
-        let cart = addItemToCart(e.target.value, getCart());
+        let cart = addItemToCart(e.target.value, getCart(), qty.value);
+        qty.value = 1;
         setCart(cart);
     });
     return li;

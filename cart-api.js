@@ -1,13 +1,13 @@
 export const CART = 'CART';
 
-export function addItemToCart(id, cart) {
+export function addItemToCart(id, cart, qty) {
     for (let item in cart) {
         if (cart[item].id === id) {
-            cart[item].quantity += 1;
+            cart[item].quantity += Number(qty);
             return [...cart.slice(0, item), cart[item], ...cart.slice(item + 1, cart.length)];
         }
     }
-    return [...cart, { id, quantity: 1 }];
+    return [...cart, { id, quantity: Number(qty) }];
 }
 
 export function getCart() {

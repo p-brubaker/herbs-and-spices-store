@@ -111,6 +111,11 @@ img {
 button {
     margin-left: 10px;
 }
+
+.qty-input {
+    max-width: 50px;
+    margin-left: 5px;
+}
   
   @keyframes pulse {
     20% {
