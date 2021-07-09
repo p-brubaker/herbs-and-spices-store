@@ -1,3 +1,5 @@
+import { addItemToCart, getCart, setCart } from '../cart-api.js';
+
 export function renderProduct(product) {
     const li = document.createElement('li');
 
@@ -37,5 +39,11 @@ export function renderProduct(product) {
     productDiv.appendChild(descSpan);
     productDiv.appendChild(buyItemDiv);
     li.appendChild(productDiv);
+
+    addButton.addEventListener('click', (e) => {
+        let cart = getCart();
+        addItemToCart(e.target.value, cart);
+        setCart(cart);
+    });
     return li;
 }

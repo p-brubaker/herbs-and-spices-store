@@ -1,24 +1,36 @@
-import { cart } from '../data/cart.js';
-import { products } from '../data/products.js';
 import { renderTableRow } from './render-line-items.js';
 import { findById, calcOrderTotal, toUSD } from '../utils/utils.js';
+import { getCart } from '../cart-api.js';
+import { products } from '../data/products.js';
 
-export function renderCart(cart, products) {
+function renderCart(cart, products) {
 
     const tBody = document.getElementById('table-body');
     const tFoot = document.getElementById('table-foot');
 
-    let tBodyContent = '';
+    const tFootRow = document.createElement('tr');
+    const orderTotalTd = document.createElement('td');
+    orderTotalTd.colSpan = 3;
+    orderTotalTd.textContent = 'Order Total:';
+    tFootRow.appendChild(orderTotalTd);
+    const calculatedTotal = document.createElement('td');
+    calculatedTotal.textContent = toUSD(calcOrderTotal(cart, products));
+    tFootRow.appendChild(calculatedTotal);
+    tFoot.appendChild(tFootRow);
+
+    let tBodyContent = [];
 
     for (let cartLineItem of cart) {
         let product = findById(products, cartLineItem.id);
         let currentRow = renderTableRow(cartLineItem, product);
-        tBodyContent += currentRow;
+        tBodyContent.push(currentRow);
     }
-    tFoot.innerHTML = `<tr><td></td><td></td><td>Order Total:</td><td>${toUSD(calcOrderTotal(cart, products))}</td></tr>`;
-    tBody.innerHTML = tBodyContent;
+   
+    for (let item of tBodyContent) {
+        tBody.appendChild(item);
+    }
 }
 
-renderCart(cart, products);
+renderCart(getCart(), products);
 
 

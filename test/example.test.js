@@ -1,7 +1,6 @@
 
 import { renderProduct } from '../storefront/renderProducts.js';
 import { products } from '../data/products.js';
-import { cart } from '../data/cart.js';
 import { findById, calcOrderTotal } from '../utils/utils.js';
 import { renderTableRow } from '../shopping-cart/render-line-items.js';
 
@@ -16,27 +15,31 @@ test('dom render function matches static html', (expect) => {
 test('find by id returns a product from the products array with the given id', (expect) => {
     const expected = {
         name: 'saffron',
-        id: 1,
+        id: '1',
         category: 'spice',
         description: 'The most expensive spice',
         image: './assets/saffron.jpeg',
         price: 2336
     };
-    const actual = findById(products, 1);
+    const actual = findById(products, '1');
     expect.deepEqual(actual, expected);
 });
 
 test('render table row function matches static html design', (expect) => {
-    const expected = `<tr><td>basil</td><td>$5.00</td><td>2</td><td>$10.00</td></tr>`;
-    const lineItem = { id: 2, quantity: 2 };
+    const expected = `<td>basil</td><td>$5.00</td><td>2</td><td>$10.00</td>`;
+    const lineItem = { id: '2', quantity: 2 };
     const product = products[2];
-    const actual = renderTableRow(lineItem, product);
+    const actual = renderTableRow(lineItem, product).innerHTML;
     expect.equal(actual, expected);
 });
 
 test('calcOrderTotal function returns correct total', (expect) => {
-    const expected = 16;
-    const actual = calcOrderTotal(cart, products);
+    const fauxCart = [
+        { id: '1', quantity: 2 },
+        { id: '2', quantity: 10 }
+    ];
+    const expected = 4682;
+    const actual = calcOrderTotal(fauxCart, products);
     expect.equal(actual, expected);
 });
 
