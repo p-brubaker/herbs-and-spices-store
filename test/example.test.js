@@ -7,9 +7,9 @@ import { renderTableRow } from '../shopping-cart/render-line-items.js';
 const test = QUnit.test;
 
 test('dom render function matches static html', (expect) => {
-    const expected = `<li><div class="store-item"><span class="name">saffron</span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description">The most expensive spice</span><div class="buy-item"><span class="price">$2336</span><button class="add-to-basket" value="1">Add</button></div></div></li>`;
+    const expected = `<div class="store-item"><span class="name">saffron</span><img src="./assets/saffron.jpeg" alt="saffron"><span class="description">The most expensive spice</span><div class="buy-item"><span class="price">$2336</span><input type="number" min="1" step="1" class="qty-input"><button class="add-to-basket" value="1">Add</button></div></div>`;
     const actual = renderProduct(products[0]);
-    expect.equal(actual.outerHTML, expected);
+    expect.equal(actual.innerHTML, expected);
 });
 
 test('find by id returns a product from the products array with the given id', (expect) => {
