@@ -1,4 +1,4 @@
-import { addItemToCart, getCart, setCart } from '../cart-api.js';
+import { addItemToCart, setCart } from '../cart-api.js';
 
 export function renderProduct(product) {
     const li = document.createElement('li');
@@ -39,17 +39,12 @@ export function renderProduct(product) {
     priceSpan.classList.add('price');
     priceSpan.textContent = `$${product.price}`;
 
-    buyItemDiv.appendChild(priceSpan);
-    buyItemDiv.appendChild(qty);
-    buyItemDiv.appendChild(addButton);
-    productDiv.appendChild(nameSpan);
-    productDiv.appendChild(img);
-    productDiv.appendChild(descSpan);
-    productDiv.appendChild(buyItemDiv);
+    buyItemDiv.append(priceSpan, qty, addButton);
+    productDiv.append(nameSpan, img, descSpan, buyItemDiv);
     li.appendChild(productDiv);
 
     addButton.addEventListener('click', (e) => {
-        let cart = addItemToCart(e.target.value, getCart(), qty.value);
+        let cart = addItemToCart(e.target.value, qty.value);
         qty.value = 1;
         setCart(cart);
     });

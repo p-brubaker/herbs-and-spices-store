@@ -28,4 +28,4 @@ clearCartBtn.addEventListener('click', () => {
 
 renderCart(getCart(), products);
 
-
+ 

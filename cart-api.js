@@ -1,6 +1,7 @@
 export const CART = 'CART';
 
-export function addItemToCart(id, cart, qty) {
+export function addItemToCart(id, qty) {
+    const cart = getCart();
     for (let item in cart) {
         if (cart[item].id === id) {
             cart[item].quantity += Number(qty);
