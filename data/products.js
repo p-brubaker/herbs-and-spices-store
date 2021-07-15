@@ -1,7 +1,7 @@
 export const products = [
     {
         name: 'saffron',
-        id: 1,
+        id: '1',
         category: 'spice',
         description: 'The most expensive spice',
         image: './assets/saffron.jpeg',
@@ -9,7 +9,7 @@ export const products = [
     },
     {
         name: 'garlic',
-        id: 2,
+        id: '2',
         category: 'herb',
         description: 'An herb with a pungent kick',
         image: './assets/garlic.jpeg',
@@ -17,7 +17,7 @@ export const products = [
     },
     {
         name: 'basil',
-        id: 3,
+        id: '3',
         category: 'herb',
         description: 'Smells great, best when fresh',
         image: './assets/basil.jpeg',
@@ -25,7 +25,7 @@ export const products = [
     },
     {
         name: 'cayenne',
-        id: 4,
+        id: '4',
         category: 'spice',
         description: 'A moderately hot pepper',
         image: './assets/cayenne.jpeg',
@@ -33,7 +33,7 @@ export const products = [
     },
     {
         name: 'cloves',
-        id: 5,
+        id: '5',
         category: 'spice',
         description: 'Good for hot beverages',
         image: './assets/cloves.jpeg',

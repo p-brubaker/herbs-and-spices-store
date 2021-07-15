@@ -1,16 +1,31 @@
-import { cart } from '../data/cart.js';
+import { getCart, setCart } from '../cart-api.js';
 import { products } from '../data/products.js';
-import { renderTableRow } from './render-line-items.js';
-import { findById, calcOrderTotal, toUSD } from '../utils.js';
+import { renderCart } from './cart-renders.js';
 
-const tBody = document.getElementById('table-body');
-const tFoot = document.getElementById('table-foot');
+const placeOrderBtn = document.getElementById('place-order');
+const clearCartBtn = document.getElementById('clear');
 
-for (let cartLineItem of cart) {
-    let product = findById(products, cartLineItem.id);
-    let currentRow = renderTableRow(cartLineItem, product);
-    tBody.innerHTML += currentRow;
+if (!getCart().length) { 
+    placeOrderBtn.disabled = 'disabled';
+    clearCartBtn.disabled = 'disabled';
 }
 
-tFoot.innerHTML = `<tr><td></td><td></td><td>Order Total:</td><td>${toUSD(calcOrderTotal(cart, products))}</td></tr>`;
+placeOrderBtn.addEventListener('click', () => {
+    if (window.confirm(JSON.stringify(getCart(), true, 2))) {
+        setCart([]);
+        window.location.replace('../index.html');
+    }
+});
 
+clearCartBtn.addEventListener('click', () => {
+    if (window.confirm('Are you sure you want to clear your cart?')) {
+        setCart([]);
+        renderCart([], products);
+        placeOrderBtn.disabled = 'disabled';
+        clearCartBtn.disabled = 'disabled';
+    }
+});
+
+renderCart(getCart(), products);
+
+ 
