@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="add-product.css" rel="stylesheet">
+    <title>Add products portal</title>
+</head>
+<body>
+    <h1>Admin enter new products here</h1>
+    <div id="product-entry-form">
+        <label for="product-name">Product Name
+            <input id="product-name" type="text">
+        </label>
+        <label for="category">Category
+            <select name="category" id="category">
+                <option name="category" value="herb">Herb</option>
+                <option name="category" value="spice">Spice</option>
+            </select>
+        </label>
+        <label for="product-description">Description
+            <input id="product-description" type="text">
+        </label>
+        <label for="product-image">Image Url
+            <input id="product-image" type="text">
+        </label>
+        <label for="product-price">Price
+            <input id="product-price" type="number">
+        </label>
+        <button id="product-submit">Submit</button>
+    </div>
+    <script src="./add-product.js" type="module"></script>
+</body>
+</html>
