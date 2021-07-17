@@ -23,3 +23,13 @@ export function calcOrderTotal(cart, products) {
     }
     return total;
 }
+
+export const PRODUCTS = 'PRODUCTS';
+
+export function setProducts(products) {
+    localStorage.setItem(PRODUCTS, JSON.stringify(products));
+}
+
+export function getProducts() {
+    return JSON.parse(localStorage.getItem(PRODUCTS));
+}
